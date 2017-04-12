@@ -2,10 +2,11 @@
 #include <iostream> 
 using namespace std;
 
-class Cache (int c_size, int c_type, int c_block_size) {
+
+class Line {
 	private:
-		int c_size;
-		int c_type;
+		int set;
+		int ;
 		int c_block_size;
 		char c_state;
 	public:
