@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <iostream> 
-#include <list>
+#include <vector>
 #include "block.cpp"
 
 using namespace std;
@@ -14,22 +14,23 @@ class Line {
 
   Line (int sets) : n_sets(sets) {
         for( int i=0 ; i<n_sets; i++){
-	n_blocks.push_front(Block(0,'i',0,0));
+	n_blocks.insert(n_blocks.begin(),Block(0,'i',0,0));
        }
   	return;
   	}
+/*
 // Devuelve el bloque
 		Block get_block (int n) {
 			Block Block_n
 			return Block_n
 		}
 
-
 // Carga un bloque al set
-		/*set_block (int n , block) {
+		set_block (int n , block) {
 			n_block
-		}*/
+		}
 	
+*/
 
 
 	bool compare(int tag_R, int block){              //FIXME
@@ -40,7 +41,7 @@ class Line {
 			return false;
 		}
 	}
-	
+
 
 	void write(int data_R, int tag_R){
 		char died = n_blocks[0].get_died();
@@ -57,7 +58,6 @@ class Line {
 		}
 	}
 
-	
 };
 
 int main(){
