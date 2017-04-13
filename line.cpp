@@ -11,6 +11,7 @@ class Line {
                 list <Block> n_blocks;		
 	public:
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
+
   Line (int sets) : n_sets(sets) {
         for( int i=0 ; i<n_sets; i++){
 	n_blocks.push_front(Block(0,'i',0,0));
@@ -60,3 +61,4 @@ int main(){
   int b = a.get_tag();
   cout << b << endl;
 };
+>>>>>>> 82357892b44bc180bd75004c978f4f0e41ccccd4
