@@ -15,8 +15,8 @@ class Line {
 			}
 		}
 // Carga un bloque al set
-		set_block (int n , block) {
-			
-		}
+		/*set_block (int n , block) {
+			n_block
+		}*/
 		
 };
