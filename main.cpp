@@ -17,6 +17,24 @@ int main (){
   cout << newBlock.get_data(i) << endl;
   }
 
+
+  newBlock.set_tag(1500);
+  newBlock.set_valid(1);
+  newBlock.set_state('M');
+  newBlock.set_died('V');
+  int blanco[32]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+  newBlock.set_data(blanco);
+
+  int aa = newBlock.get_tag();
+  int bb = newBlock.get_valid();
+  char cc = newBlock.get_state();
+  char dd = newBlock.get_died();
+  cout << "valid = " << bb <<  " state = " << cc <<  " died = " << dd <<  " tag = " << aa << endl;
+  for (int i=0; i<32; i++){
+  cout << newBlock.get_data(i) << endl;
+  }
+  
+  
   return 0;
   
 };
