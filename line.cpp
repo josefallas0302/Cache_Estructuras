@@ -13,8 +13,10 @@ class Line {
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
 
   Line (int sets) : n_sets(sets) {
+		int vec[32];
+		Block newbloque = Block(0, 'i',0,vec, 'V');
         	for( int i=0 ; i<n_sets; i++){
-			n_blocks.insert( n_blocks.begin(), Block(0,'i',int vec [32],0, 'V') );
+			n_blocks.insert( n_blocks.begin(), newbloque);
        		}
   		return;
   	}
@@ -29,11 +31,11 @@ class Line {
 		set_block (int n , block) {
 			n_block
 		}
-	
+	*/
 
 
 
-	bool compare(int tag_R, int block){              //FIXME
+	bool compare(int tag_R, int block){              
 		int tag_B = n_blocks[block].get_tag();
 		if (tag_R == tag_B){
 			return true;
@@ -43,20 +45,21 @@ class Line {
 	}
 
 
-	void write(int data_R, int tag_R){
+	void write(int data_R[32], int tag_R){
 		char died = n_blocks[0].get_died();
 		if(died == 'V'){
 			n_blocks[0].set_data(data_R);
 			n_blocks[0].set_tag(tag_R);
 			n_blocks[0].set_died('N');
 			n_blocks[1].set_died('V');
-		}else{
+		}
+		else{
 			n_blocks[1].set_data(data_R);
 			n_blocks[1].set_tag(tag_R);
 			n_blocks[1].set_died('N');
 			n_blocks[0].set_died('V');
 		}
-	}*/
+	}
 
 };
 
