@@ -8,15 +8,15 @@ using namespace std;
 class Line {
 	private:
 		int n_sets;
-                vector <Block> n_blocks;		
+                std :: vector <Block> n_blocks;		
 	public:
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
 
   Line (int sets) : n_sets(sets) {
-        for( int i=0 ; i<n_sets; i++){
-	n_blocks.insert(n_blocks.begin(),Block(0,'i',0,0));
-       }
-  	return;
+        	for( int i=0 ; i<n_sets; i++){
+			n_blocks.insert( n_blocks.begin(), Block(0,'i',int vec [32],0, 'V') );
+       		}
+  		return;
   	}
 /*
 // Devuelve el bloque
@@ -30,7 +30,7 @@ class Line {
 			n_block
 		}
 	
-*/
+
 
 
 	bool compare(int tag_R, int block){              //FIXME
@@ -56,7 +56,7 @@ class Line {
 			n_blocks[1].set_died('N');
 			n_blocks[0].set_died('V');
 		}
-	}
+	}*/
 
 };
 
