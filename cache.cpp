@@ -3,25 +3,27 @@
 using namespace std;
 
 int main(){
-	return 0;
+
 };
 
 class Cache {
+
 	private:
 		int c_size;
-		int c_type;
-		int c_block_size;
-		char c_state;
+		//int c_type;
+		//int c_block_size;
+		//char c_state;
+
 	public :
-		void Cache (int c_size, int c_type, int c_block_size ) {
+		Cache (int c_size, int c_type, int c_block_size ) : c_size(size) {
 				c_size = size;
 				c_type = type;
 				c_block_size = block;
 				c_state = state;
 		}
 
-		void Cache (int size ) {
-			c_size = size;
+	/*	Cache (int size) : c_size(size) {
+			return;
 		}
 
 		void SetType (int type ){
@@ -33,6 +35,16 @@ class Cache {
 		void GetState (char state){
 			c_state = state;
 		}
-	
-	
+	*/
 };
+
+
+
+
+
+
+
+
+
+
+
