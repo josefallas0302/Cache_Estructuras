@@ -1,31 +1,22 @@
-#include <stdio.h>
-#include <iostream> 
-using namespace std;
+#include <line.h>
 
 
 class Line {
 	private:
-		int set;
-		int ;
-		int c_block_size;
-		char c_state;
+		int n_sets;
+		list <block> n_blocks;		
 	public:
-		void SetSize (int size) {
-			c_size = size;
+// Constructor, toma n_bloques por set y genera una lista con bloques invalidos
+		Line (int sets) : n_sets(sets){
+			n_blocks.assign();
+			for( int i=0 ; i<n_sets, i++){
+				n_blocks.push_front(Block(0,'i',0,0));
+			return;
+			}
 		}
-		void SetType (int type) {
-			c_type = type;
-		}
-		void SetBlock (int block){
-			c_block_size = block;
-		}
-		void GetState (char state){
-			c_state = state;
+// Carga un bloque al set
+		set_block (int n , block) {
+			
 		}
 		
-	/*	cargar_dato(int set, ):
-			for(i=0,i<)		
-*/
-
-
 };
