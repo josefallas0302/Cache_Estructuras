@@ -25,44 +25,107 @@ class Cache_dir {
 		}
 
 		
-		void write_dir (char dir[]){
-			int result=0;
+		void write_dir (char dir[], int data_R[32]){
+			vector <int> binario;
 			for (int i=0; i<dir_size; i++){
 				if(dir[i] == '0'){
-					result = result + 0*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(0);
 				}else if(dir[i] == '1'){
-					result = result + 1*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(1);
 				}else if(dir[i] == '2'){
-					result = result + 2*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(0);
 				}else if(dir[i] == '3'){
-					result = result + 3*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(1);
 				}else if(dir[i] == '4'){
-					result = result + 4*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(0);
 				}else if(dir[i] == '5'){
-					result = result + 5*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(1);
 				}else if(dir[i] == '6'){
-					result = result + 6*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(0);
 				}else if(dir[i] == '7'){
-					result = result + 7*pow(16,dir_size-1-i);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(1);
 				}else if(dir[i] == '8'){
-					result = result + 8*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(0);
 				}else if(dir[i] == '9'){
-					result = result + 9*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(0);
+					binario.push_back(1);
 				}else if(dir[i] == 'A'){
-					result = result + 10*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(0);
 				}else if(dir[i] == 'B'){
-					result = result + 11*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(1);
+					binario.push_back(1);
 				}else if(dir[i] == 'C'){
-					result = result + 12*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(0);
 				}else if(dir[i] == 'D'){
-					result = result + 13*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(0);
+					binario.push_back(1);
 				}else if(dir[i] == 'E'){
-					result = result + 14*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(0);
 				}else if(dir[i] == 'F'){
-					result = result + 15*pow(16,dir_size-1-i);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(1);
+					binario.push_back(1);
 				}
 			}
-			cout << result << endl;
+			
+			int iterator = binario.size();
+			int ofsset = binario[0]*1 + binario[1]*2 + binario[2]*4 + binario[3]*8 + binario[4]*16 ;
+			int index = binario[5]*1 + binario[6]*2 + binario[7]*4 + binario[8]*8 + binario[9]*16 + binario[10]*32 + binario[11]*64 + binario[12]*128 + binario[13]*256 + binario[14]*512 + binario[15]*1024 + binario[16]*2048 ;
+			int tag = 0;
+			int parameter = 0;
+			for(int i=17; i<iterator; i++){
+				tag = tag + binario[i]*pow(2,parameter);
+				parameter = parameter + 1;
+			}
+
+			c_block[index].set_tag(tag);
+			c_block[index].set_data(data_R);
+			//for(int i=0; i<dir_size*4; i++){
+			//	cout << binario[i] << endl;
+			//}
 			return;
 		}
 
@@ -71,8 +134,8 @@ class Cache_dir {
 
 int main(){
 
-Cache_dir newcache = Cache_dir(10, 6);
-newcache.write_dir("F8A9BC");
+//Cache_dir newcache = Cache_dir(10, 3);
+//newcache.write_dir("A09");
 
 };
 
