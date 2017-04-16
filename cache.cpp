@@ -10,17 +10,18 @@ class Cache {
 
 	private:
 		int c_size;
-		//int c_type;
-		//int c_block_size;
-		//char c_state;
+		int b_size;
+		vector <Line> n_lines;
 
 	public :
-		Cache (int c_size, int c_type, int c_block_size ) : c_size(size) {
-				c_size = size;
-				c_type = type;
-				c_block_size = block;
-				c_state = state;
+		Cache (int cache_size, int block_size) : c_size(cache_size), b_size(block_size) {
+				int cant_lines = 
 		}
+
+		void set_V_NV (int tag_R, Line linea_n) {
+				
+		}
+			
 
 	/*	Cache (int size) : c_size(size) {
 			return;

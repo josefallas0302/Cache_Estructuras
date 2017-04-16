@@ -8,7 +8,7 @@ using namespace std;
 class Line {
 	private:
 		int n_sets;
-                std :: vector <Block> n_blocks;		
+                vector <Block> n_blocks;		
 	public:
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
 
@@ -20,20 +20,6 @@ class Line {
        		}
   		return;
   	}
-/*
-// Devuelve el bloque
-		Block get_block (int n) {
-			Block Block_n
-			return Block_n
-		}
-
-// Carga un bloque al set
-		set_block (int n , block) {
-			n_block
-		}
-	*/
-
-
 
 	bool compare(int tag_R, int block){              
 		int tag_B = n_blocks[block].get_tag();
@@ -61,6 +47,14 @@ class Line {
 		}
 	}
 
+	 void set_V_NV (int tag_R){
+			bool block_0 = compare(tag_R, 0);
+			bool block_1 = compare(tag_R, 1);  
+			if( block_0 & block_1 == false){
+
+			}
+
+			}
 };
 
 int main(){
