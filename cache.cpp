@@ -12,7 +12,6 @@ class Cache {
 		int c_size;
 		int b_size;
 		vector <Line> n_lines;
-		int caca;
 
 	public :
 		Cache (int cache_size, int block_size) : c_size(cache_size), b_size(block_size) {
