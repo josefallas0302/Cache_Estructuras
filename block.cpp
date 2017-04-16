@@ -1,3 +1,4 @@
+#include <vector>
 
 class Block {
 	private:
@@ -5,7 +6,8 @@ class Block {
 		int B_valid;
 		char B_state;
 		int B_tag;
-             	int B_data[32];
+		std :: vector <int> B_data;
+             	//int B_data[32];
                 char B_died; 
 
 	public:
@@ -50,8 +52,8 @@ class Block {
 		  B_died = new_died;
 		}
 
-                int get_data (int i){
-		    return B_data[i];
+                std :: vector <int> get_data (void){
+		    return B_data;
 		}
 
                 void set_data (int new_data[]){
@@ -61,3 +63,7 @@ class Block {
 		}
 
 };
+
+main(){
+};
+
