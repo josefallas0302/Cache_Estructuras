@@ -16,7 +16,7 @@ class Cache_dir {
 
 	public :
 	       Cache_dir (int blocks, int size) : num_block(blocks), dir_size(size) {
-		  int vacio[32];
+		  int vacio = 0;
 		  Block newblock = Block(0, 'i', 0, vacio, 'v');
 		  for(int i=0; i<blocks; i++){
 		    c_block.insert( c_block.begin(), newblock);
@@ -25,7 +25,7 @@ class Cache_dir {
 		}
 
 		
-		void write_dir (char dir[], int data_R[32]){
+		void write_dir (char dir[], int data_R){
 			vector <int> binario;
 			for (int i=0; i<dir_size; i++){
 				if(dir[i] == '0'){
@@ -129,106 +129,22 @@ class Cache_dir {
 			return;
 		}
 
-		std :: vector <int> read_dir(char dir[]){
-			vector <int> binario;
-			for (int i=0; i<dir_size; i++){
-				if(dir[i] == '0'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == '1'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == '2'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == '3'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-				}else if(dir[i] == '4'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == '5'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == '6'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == '7'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-				}else if(dir[i] == '8'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == '9'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == 'A'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == 'B'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-				}else if(dir[i] == 'C'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == 'D'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == 'E'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == 'F'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-				}
-			}
+		int read_dir(vector <int> binario){
 			
+
 			int iterator = binario.size();
-			int offset = binario[0]*1 + binario[1]*2 + binario[2]*4 + binario[3]*8 + binario[4]*16 ;
-			int index = binario[5]*1 + binario[6]*2 + binario[7]*4 + binario[8]*8 + binario[9]*16 + binario[10]*32 + binario[11]*64 + binario[12]*128 + binario[13]*256 + binario[14]*512 + binario[15]*1024 + binario[16]*2048 ;
+			int index = binario[0]*pow(2,0) + binario[1]*pow(2,1) + binario[2]*pow(2,2) + binario[3]*pow(2,3) + binario[4]*pow(2,4) + binario[5]*pow(2,5) + binario[6]*pow(2,6) + binario[7]*pow(2,7) + binario[8]*pow(2,8) + binario[9]*pow(2,9) + binario[10]*pow(2,10) + binario[11]*pow(2,11) ;
 			int tag = 0;
 			int parameter = 0;
-			for(int i=17; i<iterator; i++){
+			for(int i=12; i<iterator; i++){
 				tag = tag + binario[i]*pow(2,parameter);
 				parameter = parameter + 1;
 			}
 
-			if ( c_block[index].get_tag() == tag){
+			if ( c_block[index].get_tag() == tag && c_block[index].get_valid() == 1){
 				return c_block[index].get_data();
 			}else {
-				
+				return
 			}
 		}
 };

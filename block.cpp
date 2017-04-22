@@ -6,17 +6,14 @@ class Block {
 		int B_valid;
 		char B_state;
 		int B_tag;
-		std :: vector <int> B_data;
-             	//int B_data[32];
+		//std :: vector <int> B_data;
+             	int B_data;
                 char B_died; 
 
 	public:
 
 		//Default constructor (Default Ctor)
-                Block(int valid, char state, int tag, int data[], char died) : B_valid(valid), B_state(state), B_tag(tag), B_died(died){
-                 for(int i=0; i<32; i++){
-		   B_data[i] = data[i];
-                 }
+                Block(int valid, char state, int tag, int data, char died) : B_valid(valid), B_state(state), B_tag(tag), B_died(died), B_data(data){
 		  return;
 		}
 
@@ -52,18 +49,19 @@ class Block {
 		  B_died = new_died;
 		}
 
-                std :: vector <int> get_data (void){
+                int get_data (void){
 		    return B_data;
 		}
 
-                void set_data (int new_data[]){
-		  for(int i=0; i<32; i++){
-		    B_data[i] = new_data[i];
-		  }
+                void set_data (int new_data){
+		    B_data = new_data;
+		  //for(int i=0; i<32; i++){
+		    //B_data[i] = new_data[i];
+		  //}
 		}
 
 };
 
-main(){
-};
+//main(){
+//};
 
