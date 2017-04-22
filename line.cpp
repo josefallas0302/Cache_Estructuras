@@ -13,8 +13,8 @@ class Line {
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
 
   Line (int sets) : n_sets(sets) {
-		int vec[32];
-		Block newbloque = Block(0, 'i',0,vec, 'V');
+		int bloque;
+		Block newbloque = Block(0, 'i',0,bloque, 'V');
         	for( int i=0 ; i<n_sets; i++){
 			n_blocks.insert( n_blocks.begin(), newbloque);
        		}
@@ -31,7 +31,7 @@ class Line {
 	}
 
 
-	void pseudo_write(int data_R[32], int tag_R){
+	void pseudo_write(int data_R, int tag_R){
 		char died = n_blocks[0].get_died();
 		if(died == 'V'){
 			n_blocks[0].set_data(data_R);
@@ -47,7 +47,7 @@ class Line {
 		}
 	}
 
-	 void write_in_line(int data_R[32], int tag_R){
+	 void write_in_line(int data_R, int tag_R){
 			bool block_0 = compare(tag_R, 0);
 			bool block_1 = compare(tag_R, 1);  
 			if( block_0 || block_1 == false){
@@ -73,8 +73,8 @@ class Line {
 	}
 };
 
-int main(){
-	/*int data_1 [32] = {31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+/*int main(){
+	int data_1 [32] = {31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 	int data_2 [32] = {63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32};
 
  	Line linea(2);
@@ -107,7 +107,7 @@ int main(){
 	for(int i=0; i<32; i++){
 	c = linea.read_in_line(2,i);
 	cout << "read_result = "  << c <<  endl;
-	}*/
+	}
 	return 0;
-};
+};*/
 
