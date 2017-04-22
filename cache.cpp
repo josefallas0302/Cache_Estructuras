@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <iostream> 
+#include <vector>
+#include "line.cpp"
 using namespace std;
 
 int main(){
@@ -20,26 +22,14 @@ class Cache {
 
 		void set_V_NV (int tag_R, Line linea_n) {
 				
-		}
-			
-
-	/*	Cache (int size) : c_size(size) {
-			return;
-		}
-
-		void SetType (int type ){
-			c_type = type;
-		}
-		void SetBlock (int block ) {
-			c_block_size = block;
-		}
-		void GetState (char state){
-			c_state = state;
-		}
-	*/
+		}		
+	
 };
 
-
+int main() {
+	
+	return 0;
+};
 
 
 
