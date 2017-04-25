@@ -1,5 +1,6 @@
+#include <stdio.h>
 #include <vector>
-
+#include <math.h>
 
 using namespace std;
 
@@ -13,24 +14,32 @@ class memory {
 		memory (int line) : size_line(line){
 			for (int i=0; i<size_line; i++){
 				vector <int> newvector ;
-				newvector.insert(newvector.end(), 666666) ;
-				newvector.insert(newvector.end(), i) ;
+				newvector.insert(newvector.begin(), 666666) ;
+				newvector.insert(newvector.begin(), i) ;
 				l_mem.insert(l_mem.end(), newvector) ;
 			}
 			return;
 		}
 
-		int find_tag (int old_tag){
+		// Busca el dato en memoria
+		int find_dir (vector <int> binario){
+
+			int iterator = binario.size();
+			int dir_dec = 0;
+			for(int i=0; i<iterator; i++){
+				dir_dec = dir_dec + binario[i]*pow(2,i);
+			} //Convierte la direccion de binario a decimal
+
 			for (int i=0; i<size_line; i++){
-				if(l_mem[i][1] == old_tag){
+				if(l_mem[i][1] == dir_dec){
 					return l_mem[i][0];
 				}
-			}
+			} //Compara la direccion con cada linea de memoria y devuelve el data
 		}
 
 
 
 };
 
-int main(){
-};
+//int main(){
+//};

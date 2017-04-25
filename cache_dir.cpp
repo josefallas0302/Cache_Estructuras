@@ -3,6 +3,7 @@
 #include <vector>
 #include "block.cpp"
 #include <math.h>
+#include "mem.cpp"
 
 using namespace std;
 
@@ -24,137 +25,47 @@ class Cache_dir {
 		  return;
 		}
 
-		
-		void write_dir (char dir[], int data_R){
-			vector <int> binario;
-			for (int i=0; i<dir_size; i++){
-				if(dir[i] == '0'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == '1'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == '2'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == '3'){
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-				}else if(dir[i] == '4'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == '5'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == '6'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == '7'){
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-				}else if(dir[i] == '8'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == '9'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == 'A'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == 'B'){
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-					binario.push_back(1);
-				}else if(dir[i] == 'C'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(0);
-				}else if(dir[i] == 'D'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-					binario.push_back(1);
-				}else if(dir[i] == 'E'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(0);
-				}else if(dir[i] == 'F'){
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-					binario.push_back(1);
-				}
-			}
-			
-			int iterator = binario.size();
-			int offset = binario[0]*1 + binario[1]*2 + binario[2]*4 + binario[3]*8 + binario[4]*16 ;
-			int index = binario[5]*1 + binario[6]*2 + binario[7]*4 + binario[8]*8 + binario[9]*16 + binario[10]*32 + binario[11]*64 + binario[12]*128 + binario[13]*256 + binario[14]*512 + binario[15]*1024 + binario[16]*2048 ;
-			int tag = 0;
-			int parameter = 0;
-			for(int i=17; i<iterator; i++){
-				tag = tag + binario[i]*pow(2,parameter);
-				parameter = parameter + 1;
-			}
-
-			c_block[index].set_tag(tag);
-			c_block[index].set_data(data_R);
-			//for(int i=0; i<dir_size*4; i++){
-			//	cout << binario[i] << endl;
-			//}
-			return;
-		}
-
-		int read_dir(vector <int> binario){
-			
-
-			int iterator = binario.size();
-			int index = binario[0]*pow(2,0) + binario[1]*pow(2,1) + binario[2]*pow(2,2) + binario[3]*pow(2,3) + binario[4]*pow(2,4) + binario[5]*pow(2,5) + binario[6]*pow(2,6) + binario[7]*pow(2,7) + binario[8]*pow(2,8) + binario[9]*pow(2,9) + binario[10]*pow(2,10) + binario[11]*pow(2,11) ;
+		//Escribe en el cache, recibe la direccion de memoria y el dato
+		void write_dir (vector <int> binario, int new_data){
+			int iterator = binario.size(); //Tamano de la direccion en binario
+			int index = binario[0]*pow(2,0) + binario[1]*pow(2,1) + binario[2]*pow(2,2) + binario[3]*pow(2,3) + binario[4]*pow(2,4) + binario[5]*pow(2,5) + binario[6]*pow(2,6) + binario[7]*pow(2,7) + binario[8]*pow(2,8) + binario[9]*pow(2,9) + binario[10]*pow(2,10) + binario[11]*pow(2,11) ; // Convierte el index de binario a decimal (12 bits para el index)
 			int tag = 0;
 			int parameter = 0;
 			for(int i=12; i<iterator; i++){
 				tag = tag + binario[i]*pow(2,parameter);
 				parameter = parameter + 1;
-			}
+			} //Convierte el tag de binario a decimal (iterator-index = bits de tag)
 
-			if ( c_block[index].get_tag() == tag && c_block[index].get_valid() == 1){
+			// Sobreescribe el tag y el dato en el cache
+			c_block[index].set_tag(tag);
+			c_block[index].set_data(new_data);
+
+			return;
+		}
+
+		//Lee del cache, recibe la direccion de memoria proveniente del cache L1
+		int read_dir(vector <int> binario, memory CPU_mem ){
+			
+
+			int iterator = binario.size(); //Tamano de la direccion en binario
+			int index = binario[0]*pow(2,0) + binario[1]*pow(2,1) + binario[2]*pow(2,2) + binario[3]*pow(2,3) + binario[4]*pow(2,4) + binario[5]*pow(2,5) + binario[6]*pow(2,6) + binario[7]*pow(2,7) + binario[8]*pow(2,8) + binario[9]*pow(2,9) + binario[10]*pow(2,10) + binario[11]*pow(2,11) ; // Convierte el index de binario a decimal (12 bits para el index)
+			int tag = 0;
+			int parameter = 0;
+			for(int i=12; i<iterator; i++){
+				tag = tag + binario[i]*pow(2,parameter);
+				parameter = parameter + 1;
+			} //Convierte el tag de binario a decimal (iterator-index = bits de tag)
+
+			if ( c_block[index].get_tag()){
 				return c_block[index].get_data();
 			}else {
-				return
-			}
+				return CPU_mem.find_dir(binario);
+			} // Busca el dato en el cache o en la memoria
 		}
 };
 
-int main(){
-
-//Cache_dir newcache = Cache_dir(10, 3);
-//newcache.write_dir("A09");
-
-};
+//int main(){
+//};
 
 
 
