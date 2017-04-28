@@ -6,6 +6,7 @@ Block::Block(int valid,char state, int tag, int data, char died){
 			B_tag = tag;
 			B_data = data;
 			B_died = died;
+			B_valid = valid;
 		}
 
 		int Block::get_tag (void){
@@ -16,13 +17,13 @@ Block::Block(int valid,char state, int tag, int data, char died){
 		  B_tag = new_tag;
 		}
 
-  		/*Block :: int get_valid (void){
+  		int Block :: get_valid (void){
 		  return B_valid;
 		}
 
-		Block :: void set_valid (int new_valid){
+		void Block :: set_valid (int new_valid){
 		  B_valid = new_valid;
-		}*/
+		}
 
   		char Block :: get_state (void){
 		  return B_state;

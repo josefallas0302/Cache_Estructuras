@@ -6,6 +6,7 @@
 //#include "mem.cpp"
 //#include "line.cpp"
 //#define "line.cpp"
+#include "block.h"
 
 using namespace std;
 

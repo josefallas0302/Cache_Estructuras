@@ -8,8 +8,7 @@ class Block{
 	private:
 		char B_state;
 		int B_tag;
-		int valid;
-
+		int B_valid;
 		int B_data;
                 char B_died; 
 
