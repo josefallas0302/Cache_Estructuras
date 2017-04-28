@@ -1,7 +1,7 @@
 #include "block.h"
 
 
-Block::Block(int valid,char state, int tag, int data, char died){
+		Block::Block(int valid,char state, int tag, int data, char died){
 			B_state = state;
 			B_tag = tag;
 			B_data = data;
@@ -50,9 +50,4 @@ Block::Block(int valid,char state, int tag, int data, char died){
 		    B_data = new_data;
 
 		}
-
-
-/*int main(){
-	return 0;
-};*/
 

@@ -1,12 +1,7 @@
 #include <stdio.h>
 #include <iostream> 
-#include "cache_dir.cpp"
-//#define "cache_dir.cpp"
+#include "cache_dir.h"
 #include <vector>
-//#include "mem.cpp"
-//#include "line.cpp"
-//#define "line.cpp"
-#include "block.h"
 
 using namespace std;
 

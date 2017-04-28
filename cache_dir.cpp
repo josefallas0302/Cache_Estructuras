@@ -1,21 +1,7 @@
-#include <stdio.h>
-#include <iostream> 
-#include <vector>
-#include "block.h"
-#include <math.h>
-#include "mem.cpp"
+#include "cache_dir.h"
 
-using namespace std;
 
-class Cache_dir {
-
-	private:
-                std :: vector <Block> c_block;
-		int num_block;
-		//char c_state;
-
-	public :
-	       Cache_dir (int blocks) : num_block(blocks){
+	       Cache_dir::Cache_dir (int blocks) : num_block(blocks){
 		  Block newblock = Block(0, 'i', 0, 0, 'v');
 		  for(int i=0; i<blocks; i++){
 		    c_block.insert( c_block.begin(), newblock);
@@ -24,7 +10,7 @@ class Cache_dir {
 		}
 
 		//Escribe en el cache, recibe la direccion de memoria y el dato
-		void write_dir (vector <int> binario, int new_data, memory CPU_mem){
+		void Cache_dir :: write_dir (vector <int> binario, int new_data, memory CPU_mem){
 			int iterator = binario.size(); //Tamano de la direccion en binario
 			int index = 0;
 			int parameter1 = 0;
@@ -50,7 +36,7 @@ class Cache_dir {
 		}
 
 		//Lee del cache, recibe la direccion de memoria proveniente del cache L1
-		int read_dir(vector <int> binario, memory CPU_mem ){
+		int Cache_dir :: read_dir(vector <int> binario, memory CPU_mem){
 
 			int iterator = binario.size(); //Tamano de la direccion en binario
 			int index = 0;
@@ -76,11 +62,6 @@ class Cache_dir {
 				return CPU_mem.find_dir(binario);
 			} // Busca el dato en el cache o en la memoria
 		}
-};
-
-//int main(){
-//};
-
 
 
 

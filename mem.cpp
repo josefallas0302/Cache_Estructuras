@@ -1,17 +1,6 @@
-#include <stdio.h>
-#include <vector>
-#include <math.h>
+#include "mem.h"
 
-using namespace std;
-
-class memory {
-
-	private:
-		std :: vector <int> l_mem;
-		int size_line;
-
-	public:
-		memory (int line) : size_line(line){
+		memory :: memory (int line) : size_line(line){
 			for (int i=0; i<size_line; i++){
 				l_mem.insert(l_mem.end(), 666666) ;
 			}
@@ -19,7 +8,7 @@ class memory {
 		}
 
 		// Busca el dato en memoria
-		int find_dir (vector <int> binario){
+		int memory :: find_dir (vector <int> binario){
 
 			int iterator = binario.size();
 			int dir_dec = 0;
@@ -34,7 +23,7 @@ class memory {
 		}
 
 		// Escribe el dato a memoria
-		void set_dir (vector <int> binario, int new_data){
+		void memory :: set_dir (vector <int> binario, int new_data){
 
 			int iterator = binario.size();
 			int dir_dec = 0;
@@ -48,8 +37,3 @@ class memory {
 			 //Compara la direccion con cada linea de memoria y devuelve el data
 		}
 
-
-};
-
-//int main(){
-//};
