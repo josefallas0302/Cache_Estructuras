@@ -1,18 +1,9 @@
-#include <stdio.h>
-#include <iostream> 
-#include <vector>
-#include "block.cpp"
+#include "line.h"
 
 using namespace std;
-
-class Line {
-	private:
-		int n_sets;
-                vector <Block> n_blocks;		
-	public:
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
 
-  Line (int sets) : n_sets(sets) {
+  	Line::Line (int sets) : n_sets(sets) {
 		int bloque;
 		Block newbloque = Block(0, 'i',0,bloque, 'V');
         	for( int i=0 ; i<n_sets; i++){
@@ -21,7 +12,7 @@ class Line {
   		return;
   	}
 
-	bool compare(int tag_R, int block){              
+	bool Line::compare(int tag_R, int block){              
 		int tag_B = n_blocks[block].get_tag();
 		if (tag_R == tag_B){
 			return true;
@@ -31,7 +22,7 @@ class Line {
 	}
 
 
-	void pseudo_write(int data_R, int tag_R){
+	void Line::write_in_line(int data_R, int tag_R){
 		char died = n_blocks[0].get_died();
 		if(died == 'V'){
 			n_blocks[0].set_data(data_R);
@@ -47,14 +38,15 @@ class Line {
 		}
 	}
 
-	 void write_in_line(int data_R, int tag_R){
+/*	 void write_in_line(int data_R, int tag_R){
 			bool block_0 = compare(tag_R, 0);
 			bool block_1 = compare(tag_R, 1);  
 			if( block_0 || block_1 == false){
 				pseudo_write(data_R, tag_R);
 			}
-	}
-	int read_in_line (int tag_R){
+	}*/
+
+	int Line::read_in_line (int tag_R){
 			bool block_0 = compare(tag_R,0);
 			bool block_1 = compare(tag_R,1);
 			if (block_0 == true){ 
@@ -67,11 +59,11 @@ class Line {
 				return -1;
 			}
 	}
-	vector <int> give_direc (int tag_R){
+	/*vector <int> give_direc (int tag_R){
 				
 
-	}
-};
+	}*/
+
 
 /*int main(){
 	int data_1 [32] = {31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};

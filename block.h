@@ -8,6 +8,7 @@ class Block{
 	private:
 		char B_state;
 		int B_tag;
+		int valid;
 
 		int B_data;
                 char B_died; 
@@ -16,15 +17,15 @@ class Block{
 
 		//Default constructor (Default Ctor)
 
-		Block(char, int, int, char);
+		Block(int,char, int, int, char);
 
 		int get_tag (void);
 
 		void set_tag (int);
 
-  		//int get_valid (void);
+  		int get_valid (void);
 
-		//void set_valid (int new_valid);
+		void set_valid (int new_valid);
 
  		char get_state (void);
 

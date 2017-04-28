@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream> 
 #include <vector>
-#include "block.cpp"
+#include "block.h"
 #include <math.h>
 #include "mem.cpp"
 

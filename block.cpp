@@ -1,7 +1,7 @@
 #include "block.h"
 
 
-Block::Block(char state, int tag, int data, char died){
+Block::Block(int valid,char state, int tag, int data, char died){
 			B_state = state;
 			B_tag = tag;
 			B_data = data;
