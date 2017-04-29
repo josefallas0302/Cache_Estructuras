@@ -15,8 +15,8 @@
 	}
 
 
-	void Cache_L1::write_data_L1 (vector <int> memory_direction, int dato){
-			vector <int> binario = memory_direction;
+	void Cache_L1::write_data_L1 (char hexa, int dato){
+			vector <int> binario = div_dir(hexa, 6);
 			int iterator = binario.size();
 			int tag = 0;  // TAG es lo importante Aquí
 			int index = 0;	// Index es lo importante aquí
@@ -41,16 +41,16 @@
 			
 		}
 	
-	void Cache_L1::Load_from_mem(vector <int> memory_direction, Cache_dir L2, memory memoria ){
+	void Cache_L1::Load_from_mem(char hexa, Cache_dir L2, memory memoria ){
+			vector <int> memory_direction = div_dir(hexa, 6);
 			int dato = L2.read_dir(memory_direction, memoria);
 			this->write_data_L1(memory_direction, dato);
 		
 		}
 
-	int Cache_L1::read_data_L1 (vector <int> memory_direction){
+	int Cache_L1::read_data_L1 (char hexa){
 			int dato;
-
-			vector <int> binario = memory_direction;
+			vector <int> binario = div_dir(hexa, 6);
 			int iterator = binario.size();
 			int tag = 0;  // TAG es lo importante Aquí
 			int index = 0;	// Index es lo importante aquí
