@@ -14,7 +14,7 @@ int main () {
 	
 	memory totalmemory = memory(1000); // pow(2,24) //tamano de la direccion 24 bits 16777216
 	Cache_dir L2 = Cache_dir(4096);
-	//Cache_L1 L1A = Cache_L1(1024);
+	Cache_L1 L1A = Cache_L1(256);
 
 	fstream ficheroEntrada;
 	string nombre ("ficheroTexto.txt");
@@ -24,7 +24,7 @@ int main () {
 	if (ficheroEntrada.is_open()) {
 		while (! ficheroEntrada.eof() ) {
 			getline (ficheroEntrada,frase);
-			char direccion[7];
+			char direccion[6];
 			direccion[0]=frase[2];
 			direccion[1]=frase[3];
 			direccion[2]=frase[4];
@@ -40,6 +40,7 @@ int main () {
 			cout << "Leido: " << frase << endl;
 			if (instruccion == 'L'){
             			cout << " direccion: " << direccion << "instruccion: " << instruccion << endl;
+				
 			} else {
 				cout << " escribir" << endl;
 			}

@@ -23,10 +23,15 @@ class Cache_L1 {
 			
 		void write_data_L1 (vector <int>, int);
 
+<<<<<<< HEAD
 
 		int read_data_L1 (vector <int>,Cache_dir, memory);	
 
 
+=======
+		int read_data_L1 (vector <int>);	
+
+>>>>>>> 8d7fd27b6680cd926e76a39f40a95f56f31a31ff
 		void Load_from_mem(vector <int>, Cache_dir, memory);
 };
 #endif
