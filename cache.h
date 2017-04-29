@@ -23,7 +23,9 @@ class Cache_L1 {
 			
 		void write_data_L1 (vector <int>, int);
 
+
 		int read_data_L1 (vector <int>,Cache_dir, memory);	
+
 
 		void Load_from_mem(vector <int>, Cache_dir, memory);
 };
