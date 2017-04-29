@@ -20,10 +20,10 @@ class Cache_L1 {
 	public :
 		Cache_L1 (int);
 			
-		void write_data_L1 (char, int);
+		void write_data_L1 (vector <int>, int);
 
-		int read_data_L1 (char);	
+		int read_data_L1 (vector <int>);	
 
-		void Load_from_mem(char, Cache_dir, memory);
+		void Load_from_mem(vector <int>, Cache_dir, memory);
 };
 #endif

@@ -1,6 +1,4 @@
 #include <vector>
-#include "cache.h"
-#include "cache_dir.h"
 /*#ifndef "BLOCK_CLASS"
 #define "BLOCK_CLASS"
 */
