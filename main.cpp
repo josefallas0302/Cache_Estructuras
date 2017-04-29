@@ -13,7 +13,7 @@ using namespace std;
  
 int main () {
 	
-	memory totalmemory = memory(1000); // pow(2,24) //tamano de la direccion 24 bits 16777216
+	memory totalmemory = memory(16777256); // pow(2,24) //tamano de la direccion 24 bits 16777216
 	Cache_dir L2 = Cache_dir(4096);
 	Cache_L1 L1A = Cache_L1(256);
 
@@ -24,7 +24,8 @@ int main () {
  
 	ficheroEntrada.open ( nombre.c_str() , ios::in);
 	if (ficheroEntrada.is_open()) {
-		while (! ficheroEntrada.eof() ) {
+		for(int i=0; i<2; i++){
+		//while (! ficheroEntrada.fail()) {
 			getline (ficheroEntrada,frase);
 			char direccion[7];
 			direccion[0]=frase[2];
@@ -48,6 +49,8 @@ int main () {
 				for(int i = 0; i<24; i++){
 					cout << binario[i] << endl;
 				}
+				int data = L1A.read_data_L1(binario, L2, totalmemory);
+				cout << "dato: " << data << endl;
 			} else {
 				cout << " escribir" << endl;
 			}

@@ -27,6 +27,6 @@ class Cache_L1 {
 		int read_data_L1 (vector <int>,Cache_dir, memory);	
 
 
-		void Load_from_mem(vector <int>, Cache_dir, memory);
+		int Load_from_mem(vector <int>, Cache_dir, memory);
 };
 #endif
