@@ -24,7 +24,7 @@ int main () {
  
 	ficheroEntrada.open ( nombre.c_str() , ios::in);
 	if (ficheroEntrada.is_open()) {
-		for(int i=0; i<2; i++){
+		for(int i=0; i<6; i++){
 		//while (! ficheroEntrada.fail()) {
 			getline (ficheroEntrada,frase);
 			char direccion[7];
@@ -42,17 +42,18 @@ int main () {
 			//direc.insert(direc.end(), direccion);
 			cout << "Leido: " << frase << endl;
 			int valor = 6;
-			cortado = frase.substr(2,7);;
+			cortado = frase.substr(2,7);
+			vector <int> binario = div_dir(cortado,valor);
+            		//cout << " direccion: " << direccion << "instruccion: " << instruccion << "Binario: " << endl;
+			//for(int i = 0; i<24; i++){
+			//	cout << binario[i] << endl;
+			//}
 			if (instruccion == 'L'){
-				vector <int> binario = div_dir(cortado,valor);
-            			cout << " direccion: " << direccion << "instruccion: " << instruccion << "Binario: " << endl;
-				for(int i = 0; i<24; i++){
-					cout << binario[i] << endl;
-				}
 				int data = L1A.read_data_L1(binario, L2, totalmemory);
 				cout << "dato: " << data << endl;
 			} else {
 				cout << " escribir" << endl;
+				L1A.write_data_L1 (binario, 420420420 );
 			}
         	}
 		ficheroEntrada.close();

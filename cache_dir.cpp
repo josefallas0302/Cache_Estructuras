@@ -53,18 +53,19 @@
 				parameter2 = parameter2 + 1;
 			} //Convierte el tag de binario a decimal (iterator-index = bits de tag)
 
-			cout << "index: "<< index << "tag: " << tag << endl;
+			//cout << "index: "<< index << "tag: " << tag << endl;
 
 			if ( c_block[index].get_tag() == tag && c_block[index].get_valid()== 1){
 				cout << "hit L2" << endl;
 				return c_block[index].get_data();
 			}else {
 				cout << "miss L2" << endl;
+				int info = CPU_mem.find_dir(binario);
 				c_block[index].set_tag(tag);
-				c_block[index].set_data(CPU_mem.find_dir(binario));
+				c_block[index].set_data(info);
 				c_block[index].set_valid(1);
-				cout << "dato en L2: " << CPU_mem.find_dir(binario)<< endl;
-				return CPU_mem.find_dir(binario);
+				//cout << "dato en L2: " << CPU_mem.find_dir(binario)<< endl;
+				return info;
 			} // Busca el dato en el cache o en la memoria
 		}
 

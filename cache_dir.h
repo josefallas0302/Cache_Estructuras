@@ -27,6 +27,8 @@ class Cache_dir {
 
 		//Lee del cache, recibe la direccion de memoria proveniente del cache L1
 		int read_dir(vector <int> binario, memory CPU_mem );
+
+		void set_valid_dir(int index, int valid);
 };
 
 #endif 

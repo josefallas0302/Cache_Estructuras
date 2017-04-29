@@ -43,7 +43,7 @@
 	
 	int Cache_L1::Load_from_mem(vector <int> memory_direction, Cache_dir L2, memory memoria ){
 			int dato = L2.read_dir(memory_direction, memoria);
-			cout << "dato en cache L1: " << dato << endl;
+			//cout << "dato en cache L1: " << dato << endl;
 			this->write_data_L1(memory_direction, dato);
 			return dato;
 		}
@@ -76,7 +76,7 @@
 			dato = n_lines[index].read_in_line(tag);
 			
 			if(dato == -1){
-				cout << "cargando de L2" << endl;
+			//	cout << "cargando de L2" << endl;
 				int data = this->Load_from_mem(memory_direction, L2, memoria);
 				return data;					
 			} else {
