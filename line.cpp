@@ -51,11 +51,14 @@ using namespace std;
 			bool block_1 = compare(tag_R,1);
 			if (block_0 == true){ 
 				return n_blocks[0].get_data();
+				cout<<"hit"<<endl;
 			}
 			if (block_1 == true){
 				return n_blocks[1].get_data();
+				cout<<"hit"<<endl;
 			}
 			else {
+				cout <<"miss"<< endl;
 				return -1;
 			}
 	}
