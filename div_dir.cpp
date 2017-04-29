@@ -1,10 +1,16 @@
+#include <stdio.h>
+#include <iostream> 
 #include <vector>
+#include <math.h>
+#include <cstring>
+#include <string>
+
 /*#ifndef "BLOCK_CLASS"
 #define "BLOCK_CLASS"
 */
 using namespace std;
 
-vector <int> div_dir(char dir[],int dir_size){
+vector <int> div_dir(string dir, int dir_size){
 		vector <int> binario;
 		for (int i=0; i<dir_size; i++){
 				if(dir[i] == '0'){
@@ -92,7 +98,7 @@ vector <int> div_dir(char dir[],int dir_size){
 				
 			}
 							
-
+		return binario;
 		}
 /*
 

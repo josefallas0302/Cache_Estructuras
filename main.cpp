@@ -6,6 +6,7 @@
 #include "cache_dir.h"
 #include <vector>
 #include "cache.h"
+#include "div_dir.cpp"
  
 using namespace std;
 
@@ -19,12 +20,13 @@ int main () {
 	fstream ficheroEntrada;
 	string nombre ("ficheroTexto.txt");
 	string frase;
+	string cortado;
  
 	ficheroEntrada.open ( nombre.c_str() , ios::in);
 	if (ficheroEntrada.is_open()) {
 		while (! ficheroEntrada.eof() ) {
 			getline (ficheroEntrada,frase);
-			char direccion[6];
+			char direccion[7];
 			direccion[0]=frase[2];
 			direccion[1]=frase[3];
 			direccion[2]=frase[4];
@@ -38,9 +40,14 @@ int main () {
 			//strcpy(direccion, frase.c_str());
 			//direc.insert(direc.end(), direccion);
 			cout << "Leido: " << frase << endl;
+			int valor = 6;
+			cortado = frase.substr(2,7);;
 			if (instruccion == 'L'){
-            			cout << " direccion: " << direccion << "instruccion: " << instruccion << endl;
-				
+				vector <int> binario = div_dir(cortado,valor);
+            			cout << " direccion: " << direccion << "instruccion: " << instruccion << "Binario: " << endl;
+				for(int i = 0; i<24; i++){
+					cout << binario[i] << endl;
+				}
 			} else {
 				cout << " escribir" << endl;
 			}
