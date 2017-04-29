@@ -14,7 +14,7 @@ using namespace std;
 
 	bool Line::compare(int tag_R, int block){              
 		int tag_B = n_blocks[block].get_tag();
-		if (tag_R == tag_B){
+		if (tag_R == tag_B && n_blocks[block].get_state() != 'i'){
 			return true;
 		}else{
 			return false;

@@ -47,7 +47,7 @@
 		
 		}
 
-	int Cache_L1::read_data_L1 (vector <int> memory_direction){
+	int Cache_L1::read_data_L1 (vector <int> memory_direction, Cache_dir L2, memory memoria){
 			int dato;
 
 			vector <int> binario = memory_direction;
@@ -71,14 +71,15 @@
 				parameter = parameter + 1;
 			}
 			
-			
+		
 			dato = n_lines[index].read_in_line(tag);
 			
 			if(dato == -1){
-				this->Load_from_mem(vector <int> memory_direction);							
+				this->Load_from_mem(memory_direction, L2, memoria);							
 			}
-			else{
 					return dato;
-			}
+			
 	
 		}
+
+

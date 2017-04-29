@@ -10,6 +10,7 @@ class Line {
 	private:
 		int n_sets;
                 vector <Block> n_blocks;		
+		//friend void MESI;	
 	public:
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
 	

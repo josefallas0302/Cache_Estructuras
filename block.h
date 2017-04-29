@@ -7,10 +7,12 @@ using namespace std;
 class Block{
 	private:
 		char B_state;
-		int B_tag;
-		int B_valid;
-		int B_data;
+		int  B_tag;
+		int  B_valid;
+		int  B_data;
                 char B_died; 
+
+	//	friend void MESI (Block);
 
 	public:
 
