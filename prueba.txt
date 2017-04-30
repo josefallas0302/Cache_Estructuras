@@ -1,11 +1,15 @@
 Leido: 0x100015 S
  escribir
 Leido: 0x100015 L
-hit
-dato: 420420420
+miss
+miss L2
+Entro a memoria
+dato: 666666
 Leido: 0x100015 L
-hit
-dato: 420420420
+miss
+miss L2
+Entro a memoria
+dato: 666666
 Leido: 0x1283BF L
 miss
 miss L2
@@ -14,5 +18,7 @@ dato: 666666
 Leido: 0x1283C0 S
  escribir
 Leido: 0x1283C0 L
-hit
-dato: 420420420
+miss
+miss L2
+Entro a memoria
+dato: 666666

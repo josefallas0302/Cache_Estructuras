@@ -69,8 +69,9 @@
 			} // Busca el dato en el cache o en la memoria
 		}
 
-
-
+		void Cache_dir :: set_valid_dir(int index, int valid){
+			c_block[index].set_valid(valid);
+		}
 
 
 

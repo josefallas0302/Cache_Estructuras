@@ -102,7 +102,7 @@ vector <int> div_dir(string dir, int dir_size){
 		}
 
 
-void MESI (char inst, vector <int> direction ,Cache cache_1 , Cache cache_2, Cache_dir cache_L2){
+/*void MESI (char inst, vector <int> direction ,Cache cache_1 , Cache cache_2, Cache_dir cache_L2){
 		int index = 0;
 		int tag = 0;
 		if(char inst == "S"){
@@ -121,4 +121,4 @@ void MESI (char inst, vector <int> direction ,Cache cache_1 , Cache cache_2, Cac
 				}
 			} 		
 		}
-
+*/
