@@ -15,9 +15,11 @@ using namespace std;
 class Cache_L1 {
 
 	private:
-		vector <Line> n_lines;
+
 		//friend void MESI(char, vector <int>, Cache_L1 , Cache_L1 , Cache_dir);
 	public :
+		vector <Line> n_lines;
+
 		Cache_L1 (int);
 			
 		void write_data_L1 (vector <int>, int);
