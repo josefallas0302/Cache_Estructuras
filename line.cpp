@@ -5,7 +5,7 @@ using namespace std;
 
   	Line::Line (int sets) : n_sets(sets) {
 		int bloque;
-		Block newbloque = Block(0, 'i',0,bloque, 'V');
+		Block newbloque = Block(0, 'M',0,bloque, 'V');
         	for( int i=0 ; i<n_sets; i++){
 			n_blocks.insert( n_blocks.begin(), newbloque);
        		}
@@ -50,12 +50,12 @@ using namespace std;
 			bool block_0 = compare(tag_R,0);
 			bool block_1 = compare(tag_R,1);
 			if (block_0 == true){ 
-				return n_blocks[0].get_data();
 				cout<<"hit"<<endl;
+				return n_blocks[0].get_data();
 			}
 			if (block_1 == true){
-				return n_blocks[1].get_data();
 				cout<<"hit"<<endl;
+				return n_blocks[1].get_data();
 			}
 			else {
 				cout <<"miss"<< endl;

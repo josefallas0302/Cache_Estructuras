@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <vector>
 #include <math.h>
+#include <iostream> 
 
 #ifndef MEM_CLASS
 #define MEM_CLASS

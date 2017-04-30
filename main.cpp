@@ -6,25 +6,28 @@
 #include "cache_dir.h"
 #include <vector>
 #include "cache.h"
+#include "div_dir.cpp"
  
 using namespace std;
 
  
 int main () {
 	
-	memory totalmemory = memory(1000); // pow(2,24) //tamano de la direccion 24 bits 16777216
+	memory totalmemory = memory(16777256); // pow(2,24) //tamano de la direccion 24 bits 16777216
 	Cache_dir L2 = Cache_dir(4096);
 	Cache_L1 L1A = Cache_L1(256);
 
 	fstream ficheroEntrada;
 	string nombre ("ficheroTexto.txt");
 	string frase;
+	string cortado;
  
 	ficheroEntrada.open ( nombre.c_str() , ios::in);
 	if (ficheroEntrada.is_open()) {
-		while (! ficheroEntrada.eof() ) {
+		for(int i=0; i<6; i++){
+		//while (! ficheroEntrada.fail()) {
 			getline (ficheroEntrada,frase);
-			char direccion[6];
+			char direccion[7];
 			direccion[0]=frase[2];
 			direccion[1]=frase[3];
 			direccion[2]=frase[4];
@@ -38,11 +41,19 @@ int main () {
 			//strcpy(direccion, frase.c_str());
 			//direc.insert(direc.end(), direccion);
 			cout << "Leido: " << frase << endl;
+			int valor = 6;
+			cortado = frase.substr(2,7);
+			vector <int> binario = div_dir(cortado,valor);
+            		//cout << " direccion: " << direccion << "instruccion: " << instruccion << "Binario: " << endl;
+			//for(int i = 0; i<24; i++){
+			//	cout << binario[i] << endl;
+			//}
 			if (instruccion == 'L'){
-            			cout << " direccion: " << direccion << "instruccion: " << instruccion << endl;
-				
+				int data = L1A.read_data_L1(binario, L2, totalmemory);
+				cout << "dato: " << data << endl;
 			} else {
 				cout << " escribir" << endl;
+				L1A.write_data_L1 (binario, 420420420 );
 			}
         	}
 		ficheroEntrada.close();
