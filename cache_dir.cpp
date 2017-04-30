@@ -35,6 +35,7 @@
 			return;
 		}
 
+
 		//Lee del cache, recibe la direccion de memoria proveniente del cache L1
 		int Cache_dir :: read_dir(vector <int> binario, memory CPU_mem){
 

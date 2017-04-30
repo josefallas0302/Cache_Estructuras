@@ -25,7 +25,7 @@ class Cache_L1 {
 		void write_data_L1 (vector <int>, int);
 
 
-		int read_data_L1 (vector <int>,Cache_dir, memory);	
+		int read_data_L1 (vector <int>,Cache_dir, memory, Cache_L1);	
 
 	
 		Line get_line(int);

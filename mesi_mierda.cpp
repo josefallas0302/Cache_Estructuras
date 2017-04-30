@@ -32,7 +32,7 @@ void MESI (char inst, vector <int> direction ,Cache_L1 cache_1 , Cache_L1 cache_
 		}
 		
 
-
+		cout << "index L2: " << index_L2 << "index L1: " << index << "tag L1: " << tag << endl;
 
 		if(inst == 'S'){
 			for(int i = 0; i<2 ; i++){

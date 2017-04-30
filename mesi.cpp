@@ -1,9 +1,8 @@
 #include "cache.h"
 #include "cache_dir.h"
-#include <string.h>
 #include <math.h>
 
-void MESI (string inst, vector <int> direction ,Cache_L1 cache_1 , Cache_L1 cache_2, Cache_dir cache_L2, memory memoria){
+void MESI (char inst, vector <int> direction ,Cache_L1 cache_1 , Cache_L1 cache_2, Cache_dir cache_L2, memory memoria){
 		//char initial_state
 		vector <int> binario = direction;
 		int iterator = binario.size(); //Tamano de la direccion en binario
@@ -30,7 +29,7 @@ void MESI (string inst, vector <int> direction ,Cache_L1 cache_1 , Cache_L1 cach
 			parameter = parameter + 1;
 		}
 
-		if(inst == "S"){
+		if(inst =='S'){
 			for(int i = 0; i<2 ; i++){
 
 				//Pone cache_1 en Modificado
@@ -49,7 +48,7 @@ void MESI (string inst, vector <int> direction ,Cache_L1 cache_1 , Cache_L1 cach
 				}
 			}
 		}
-		if( inst == "L"){
+		if( inst == 'L'){
 		for(int i=0; i < 2 ; i++){
 			for(int j=0; j<2; j++){
 				if (cache_1.get_line(index).get_block(i).get_tag() == cache_2.get_line(index).get_block(j).get_tag()){
