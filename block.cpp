@@ -51,3 +51,8 @@
 
 		}
 
+		void Block :: block_info (void) {
+			cout << "Estado: " << B_state << " Tag: " << B_tag << " Dato: " << B_data << " LRU: " << B_died << " Valid " << B_valid << endl;    
+		}
+
+

@@ -2,6 +2,7 @@
 #define BLOCK_CLASS
 
 #include <vector>
+#include <iostream>
 using namespace std;
 
 class Block{
@@ -39,7 +40,8 @@ class Block{
                 int get_data (void);
 
                 void set_data (int new_data);
-
+		
+		void block_info(void);
 };
 
 #endif 

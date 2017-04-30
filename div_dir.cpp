@@ -102,6 +102,26 @@ vector <int> div_dir(string dir, int dir_size){
 		}
 
 
+vector <int> generate_binario(int tag,int index){
+		vector <int> binario;
+		int dato;
+		for(int j=0;j<8;j++){
+			dato = index%2;
+			binario.insert(binario.begin(), dato);
+			index = index/2;
+			//cout << "entro a primer for e inserto "<< dato <<endl;
+		}
+
+		for(int i=0; i<16; i++){
+			 dato = tag%2;
+			 binario.insert(binario.begin(), dato);
+			 tag = tag/2;
+			 //cout << "entro a segundo for e inserto "<< dato<<endl;
+		}
+			return binario;
+	}
+
+
 /*void MESI (char inst, vector <int> direction ,Cache cache_1 , Cache cache_2, Cache_dir cache_L2){
 		int index = 0;
 		int tag = 0;

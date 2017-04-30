@@ -83,51 +83,102 @@ int main () {
 					//read_data_L1 se encarga de saber si el dato es valido
 					int data1 = L1A.read_data_L1(binario1, L2, totalmemory, L1B);
 					for(int i=0; i < 2 ; i++){
+//cout<< " L1A Block[" << i <<"] info :" << endl; 
+//L1A.n_lines[index_L1].n_blocks[i].block_info(); // informacion de Bloque
+
 						for(int j=0; j<2; j++){
 							if (L1A.n_lines[index_L1].n_blocks[i].get_tag() == L1B.n_lines[index_L1].n_blocks[j].get_tag() && L1B.n_lines[index_L1].n_blocks[j].get_state() == 'M' ){
+//cout<< " L1A Block[" << i <<"] info :" << endl; 
+//L1A.n_lines[index_L1].n_blocks[i].block_info(); // informacion de Bloque
+
+//cout<< " L1B Block[" << j <<"] info :" << endl; 
+//L1B.n_lines[index_L1].n_blocks[j].block_info(); // informacion de Bloque
+
 								L1A.n_lines[index_L1].n_blocks[i].set_state('S');
-								L1B.n_lines[index_L1].n_blocks[i].set_state('S');
-								L2.write_dir(binario1, data1, totalmemory);
+								L1B.n_lines[index_L1].n_blocks[j].set_state('S');
+								L2.write_dir(binario1, data1, totalmemory);	
+// funcion Para ver la informacion del bloque
+
+//cout<< " L1A Block[" << i <<"] info " <<endl;
+//L1A.n_lines[index_L1].n_blocks[i].block_info(); // informacion de Bloque
+
+//cout<< " L1B Block[" << j <<"] info " <<endl;
+//L1B.n_lines[index_L1].n_blocks[j].block_info(); //informacion de Bloque
+
 							}else if(L1A.n_lines[index_L1].n_blocks[i].get_tag() == L1B.n_lines[index_L1].n_blocks[j].get_tag() && L1B.n_lines[index_L1].n_blocks[j].get_state() == 'E'){ 
+//L1A.n_lines[index_L1].n_blocks[i].block_info(); // info de Bloque
+
 								L1A.n_lines[index_L1].n_blocks[i].set_state('S');
 								L1B.n_lines[index_L1].n_blocks[i].set_state('S');
+
 							} else if(L1A.n_lines[index_L1].n_blocks[j].get_state() == 'M'){
 								L1A.n_lines[index_L1].n_blocks[i].set_state('M');
 							} else {
 								L1A.n_lines[index_L1].n_blocks[i].set_state('E');
 							}
+								cout<< " L1B Block[" << j <<"] info " <<endl;
+//L1B.n_lines[index_L1].n_blocks[j].block_info(); //informacion de Bloque
+
 						}
+								cout<< " L1A Block[" << i <<"] info " <<endl;
+//L1A.n_lines[index_L1].n_blocks[i].block_info(); // informacion de Bloque
+
 					}	
 					cout << "dato: " << data1 << endl;
+//L1A.n_lines[index_L1].n_blocks[0].block_info();
+
+					L1A.n_lines[index_L1].n_blocks[1].block_info();
+					L1B.n_lines[index_L1].n_blocks[0].block_info();
+					L1B.n_lines[index_L1].n_blocks[1].block_info();
 				} else {
-					cout << " escribir" << endl;
+					cout << " escribir" << endl;					
+
 
 					for(int i = 0; i<2 ; i++){
+
+						L1A.n_lines[index_L1].n_blocks[i].block_info(); // información de bloque
+
 						if(L1A.n_lines[index_L1].n_blocks[i].get_tag() == tag_L1){
+
+							
+
 							L1A.write_data_L1(binario1, 420420420);
 							L1A.n_lines[index_L1].n_blocks[i].set_state('M');
+
 
 						} else if (L1A.n_lines[index_L1].n_blocks[i].get_tag() != tag_L1 && L1A.n_lines[index_L1].n_blocks[i].get_state() == 'M'){
-						//	int index_p = index_L1;
-					/*		vector <int> new_binario;
-							while( index_p != 0 || index_p  !=1){
-								new_binario.insert( new_binario.begin(), index_p%2);
-								index_p = index_p / 2;
-							}
-							new_binario.insert( new_binario.begin(), index_p);
-							int tag_p = tag_L1;
-							while( tag_p != 0 || tag_p  !=1){
-								new_binario.insert( new_binario.begin(), tag_p%2);
-								tag_p = tag_p / 2;
-							}
-							new_binario.insert( new_binario.begin(), tag_p);   */
+								L1A.n_lines[index_L1].n_blocks[i].block_info(); // información de bloque
 
-							L2.write_dir(new_binario, L1A.n_lines[index_L1].n_blocks[i].get_data(), totalmemory);
+								int tag_MA = L1A.n_lines[index_L1].n_blocks[i].get_tag();
+								int dato_MA = L1A.n_lines[index_L1].n_blocks[i].get_data(); // Dato inicial en Block
+
+								vector <int> new_binario = generate_binario(tag_MA,index_L1); 							
+								L2.write_dir(new_binario,dato_MA,totalmemory);
+
+//	int index_p = index_L1;
+/*		vector <int> new_binario;
+while( index_p != 0 || index_p  !=1){
+new_binario.insert( new_binario.begin(), index_p%2);
+index_p = index_p / 2;
+				}
+	new_binario.insert( new_binario.begin(), index_p);
+		int tag_p = tag_L1;
+		while( tag_p != 0 || tag_p  !=1){
+	new_binario.insert( new_binario.begin(), tag_p%2);
+		tag_p = tag_p / 2;
+				}
+new_binario.insert( new_binario.begin(), tag_p);   */
+
+//L2.write_dir(new_binario, L1A.n_lines[index_L1].n_blocks[i].get_data(), totalmemory);
 							L1A.write_data_L1(binario1, 420420420);
 							L1A.n_lines[index_L1].n_blocks[i].set_state('M');
+							
+							
+
 							//L2.set_valid_dir(index_L2,0);
 
 						}else{
+
 						} /*
 
 						} else if (L1A.n_lines[index_L1].n_blocks[i].get_tag() != tag_L1 && L1A.n_lines[index_L1].n_blocks[i].get_state() == 'E'){
@@ -138,6 +189,8 @@ int main () {
 							L1A.write_data_L1(binario1, 420420420);
 							L1A.n_lines[index_L1].n_blocks[i].set_state('M');
 						} */
+						L1A.n_lines[index_L1].n_blocks[i].block_info(); // información de Bloque
+
 					} 
 				}
 			}
