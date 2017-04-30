@@ -7,6 +7,7 @@
 #include <vector>
 #include "cache.h"
 #include "div_dir.cpp"
+#include "mesi.cpp"
  
 using namespace std;
 
@@ -16,6 +17,7 @@ int main () {
 	memory totalmemory = memory(16777256); // pow(2,24) //tamano de la direccion 24 bits 16777216
 	Cache_dir L2 = Cache_dir(4096);
 	Cache_L1 L1A = Cache_L1(256);
+	Cache_L1 L1B = Cache_L1(256);
 
 	fstream ficheroEntrada;
 	string nombre ("ficheroTexto.txt");
@@ -27,14 +29,6 @@ int main () {
 		for(int i=0; i<6; i++){
 		//while (! ficheroEntrada.fail()) {
 			getline (ficheroEntrada,frase);
-			char direccion[7];
-			direccion[0]=frase[2];
-			direccion[1]=frase[3];
-			direccion[2]=frase[4];
-			direccion[3]=frase[5];
-			direccion[4]=frase[6];
-			direccion[5]=frase[7];
-			direccion[6]=frase[8];
 
 			char instruccion = frase[9];
 			//char direccion[frase.size()+1];//as 1 char space for null is also required
@@ -50,10 +44,12 @@ int main () {
 			//}
 			if (instruccion == 'L'){
 				int data = L1A.read_data_L1(binario, L2, totalmemory);
+				MESI(instruccion, binario, L1A, L1B, L2, totalmemory);
 				cout << "dato: " << data << endl;
 			} else {
 				cout << " escribir" << endl;
 				L1A.write_data_L1 (binario, 420420420 );
+				MESI(instruccion, binario, L1A, L1B, L2, totalmemory);
 			}
         	}
 		ficheroEntrada.close();
