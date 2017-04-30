@@ -94,14 +94,16 @@ vector <int> div_dir(char dir[],int dir_size){
 							
 
 		}
-/*
+
 
 void MESI (char inst, vector <int> direction ,Cache cache_1 , Cache cache_2, Cache_dir cache_L2){
 		int index = 0;
+		int tag = 0;
 		if(char inst == "S"){
-			/*for(int i = 0; i<2 ; i++){
-				if(cache_1)
+			for(int i = 0; i<2 ; i++){
+				if(cache_1.n_lines[index].n_blocks[i]== ){
 				cache_1.n_lines[index].n_blocks[i].set_state('M');
+				cache_L2.c_blocks[tag]
 			}
 		}
 		if(char inst == "C"){
@@ -113,8 +115,4 @@ void MESI (char inst, vector <int> direction ,Cache cache_1 , Cache cache_2, Cac
 				}
 			} 		
 		}
-
-int main() {
-	return 0;
-};	*/
 

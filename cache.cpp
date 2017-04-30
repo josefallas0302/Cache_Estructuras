@@ -25,7 +25,7 @@
 			int parameter = 0;			
 			
 			for(int i=0; i<8; i++){
-				index = tag + binario[i]*pow(2,parameter);
+				index = index + binario[i]*pow(2,parameter);
 				parameter = parameter + 1;
 			}
 
@@ -82,4 +82,7 @@
 	
 		}
 
-
+	Line Cache_L1::get_line(int index){
+			Line linea = n_lines[index];
+			return linea;
+		}

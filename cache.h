@@ -1,3 +1,6 @@
+#ifndef CACHE_L1_CLASS
+#define CACHE_L1_CLASS
+
 #include <stdio.h>
 #include <iostream> 
 #include <vector>
@@ -6,9 +9,6 @@
 #include "cache_dir.h"
 #include "mem.h"
 
-#ifndef CACHE_L1_CLASS
-#define CACHE_L1_CLASS
-
 using namespace std;
 
 
@@ -16,8 +16,7 @@ class Cache_L1 {
 
 	private:
 		vector <Line> n_lines;
-		//friend void MESI;
-
+		//friend void MESI(char, vector <int>, Cache_L1 , Cache_L1 , Cache_dir);
 	public :
 		Cache_L1 (int);
 			
@@ -28,5 +27,8 @@ class Cache_L1 {
 
 
 		void Load_from_mem(vector <int>, Cache_dir, memory);
+	
+		Line get_line(int);
+
 };
 #endif

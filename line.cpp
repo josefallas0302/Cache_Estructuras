@@ -62,6 +62,12 @@ using namespace std;
 				return -1;
 			}
 	}
+
+	Block Line::get_block(int b){
+			Block bloque = n_blocks[b];
+			return bloque;
+	}
+
 	/*vector <int> give_direc (int tag_R){
 				
 

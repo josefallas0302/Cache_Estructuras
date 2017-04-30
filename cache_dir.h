@@ -1,13 +1,15 @@
+#ifndef CACHE_DIR_CLASS
+#define CACHE_DIR_CLASS
 #include <stdio.h>
 #include <iostream> 
 #include <vector>
 #include "block.h"
 #include <math.h>
 #include "mem.h"
+//#include "cache.h"
 
 
-#ifndef CACHE_DIR_CLASS
-#define CACHE_DIR_CLASS
+
 
 using namespace std;
 
@@ -16,6 +18,7 @@ class Cache_dir {
 	private:
                 std :: vector <Block> c_block;
 		int num_block;
+		//friend void MESI(char, vector <int>, Cache_L1 , Cache_L1 , Cache_dir);
 
 	public :
 
