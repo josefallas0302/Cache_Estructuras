@@ -5,6 +5,8 @@
 #include <iostream> 
 #include <vector>
 #include "block.h"
+//#include "cache.h"
+//#include "cache_dir.h"
 
 class Line {
 	private:

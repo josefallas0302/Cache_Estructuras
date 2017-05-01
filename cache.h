@@ -8,6 +8,7 @@
 #include "line.h"
 #include "cache_dir.h"
 #include "mem.h"
+#include "div_dir.cpp"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ class Cache_L1 {
 
 		Cache_L1 (int);
 			
-		void write_data_L1 (vector <int>, int);
+		void write_data_L1 (vector <int>, int, Cache_L1, Cache_dir, memory);
 
 
 		int read_data_L1 (vector <int>,Cache_dir, memory, Cache_L1);	
@@ -30,7 +31,7 @@ class Cache_L1 {
 	
 		Line get_line(int);
 
-		int Load_from_mem(vector <int>, Cache_dir, memory);
+		int Load_from_mem(vector <int>, Cache_dir, memory, Cache_L1);
 
 };
 #endif

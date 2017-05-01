@@ -4,8 +4,8 @@ using namespace std;
 // Constructor, toma n_bloques por set y genera una lista con bloques invalidos
 
   	Line::Line (int sets) : n_sets(sets) {
-		int bloque;
-		Block newbloque = Block(0, 'M',0,bloque, 'V');
+		int bloque = 0;
+		Block newbloque = Block(0, 'I',0,bloque, 'V');
         	for( int i=0 ; i<n_sets; i++){
 			n_blocks.insert( n_blocks.begin(), newbloque);
        		}
@@ -30,12 +30,14 @@ using namespace std;
 			n_blocks[0].set_tag(tag_R);
 			n_blocks[0].set_died('N');
 			n_blocks[1].set_died('V');
+			this->n_blocks[0].set_state('M');
 		}
 		else{
 			n_blocks[1].set_data(data_R);
 			n_blocks[1].set_tag(tag_R);
 			n_blocks[1].set_died('N');
 			n_blocks[0].set_died('V');
+			this->n_blocks[1].set_state('M');
 		}
 	}
 
