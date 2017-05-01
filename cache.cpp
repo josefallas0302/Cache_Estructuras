@@ -47,13 +47,41 @@
 			if(this->n_lines[index].n_blocks[0].get_tag() == tag){
 				this->n_lines[index].n_blocks[0].set_state('M');
 				if(old_tag0 != tag && old_state0 == 'M'){
-					vector <int> new_dir2 = generate_binario(old_tag0, index);
+					vector <int> new_dir2;
+					int dato;
+					for(int j=0;j<8;j++){
+						dato = index%2;
+						new_dir2.insert(new_dir2.begin(), dato);
+						index = index/2;
+						//cout << "entro a primer for e inserto "<< dato <<endl;
+					}
+
+					for(int i=0; i<16; i++){
+						 dato = old_tag0%2;
+						 new_dir2.insert(new_dir2.begin(), dato);
+						 old_tag0 = old_tag0/2;
+						 //cout << "entro a segundo for e inserto "<< dato<<endl;
+					}
 					L2.write_dir (new_dir2, old_data0, totalmemory);
 				}
 			} else {
 				this->n_lines[index].n_blocks[1].set_state('M');
 				if(old_tag1 != tag && old_state1 == 'M'){
-					vector <int> new_dir2 = generate_binario(old_tag1, index);
+					vector <int> new_dir2;
+					int dato;
+					for(int j=0;j<8;j++){
+						dato = index%2;
+						new_dir2.insert(new_dir2.begin(), dato);
+						index = index/2;
+						//cout << "entro a primer for e inserto "<< dato <<endl;
+					}
+
+					for(int i=0; i<16; i++){
+						 dato = old_tag1%2;
+						 new_dir2.insert(new_dir2.begin(), dato);
+						 old_tag1 = old_tag1/2;
+						 //cout << "entro a segundo for e inserto "<< dato<<endl;
+					}
 					L2.write_dir (new_dir2, old_data1, totalmemory);
 				}
 			}

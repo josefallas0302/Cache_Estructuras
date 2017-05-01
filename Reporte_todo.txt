@@ -1,0 +1,334 @@
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core1: 0x100000 L
+Lectura
+
+ Lineas de los caches L1 antes de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+miss
+Buscando dato en el otro cache
+miss
+cargando de L2
+miss L2
+Entro a memoria
+
+ Bloque del cache L2 despues de lectura 
+Estado: i Tag: 256 Dato: 666666 LRU: v Valid 1
+
+dato en cache L1: 666666
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+ Lineas de los caches L1 despues de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+dato: 666666
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core1: 0x100001 L
+Lectura
+
+ Lineas de los caches L1 antes de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+miss
+Buscando dato en el otro cache
+miss
+cargando de L2
+miss L2
+Entro a memoria
+
+ Bloque del cache L2 despues de lectura 
+Estado: i Tag: 256 Dato: 666666 LRU: v Valid 1
+
+dato en cache L1: 666666
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+ Lineas de los caches L1 despues de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+dato: 666666
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core1: 0x100002 L
+Lectura
+
+ Lineas de los caches L1 antes de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+miss
+Buscando dato en el otro cache
+miss
+cargando de L2
+miss L2
+Entro a memoria
+
+ Bloque del cache L2 despues de lectura 
+Estado: i Tag: 256 Dato: 666666 LRU: v Valid 1
+
+dato en cache L1: 666666
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+ Lineas de los caches L1 despues de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+dato: 666666
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core2: 0x100024 S
+ Escritura 
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 123456789 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core1: 0x100003 L
+Lectura
+
+ Lineas de los caches L1 antes de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+miss
+Buscando dato en el otro cache
+miss
+cargando de L2
+miss L2
+Entro a memoria
+
+ Bloque del cache L2 despues de lectura 
+Estado: i Tag: 256 Dato: 666666 LRU: v Valid 1
+
+dato en cache L1: 666666
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+ Lineas de los caches L1 despues de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+
+ Bloque del cache L2 despues de escritura
+Estado: i Tag: 256 Dato: 666666 LRU: v Valid 1
+
+dato: 666666
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core1: 0x100004 L
+Lectura
+
+ Lineas de los caches L1 antes de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+miss
+Buscando dato en el otro cache
+miss
+cargando de L2
+miss L2
+Entro a memoria
+
+ Bloque del cache L2 despues de lectura 
+Estado: i Tag: 256 Dato: 666666 LRU: v Valid 1
+
+dato en cache L1: 666666
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+ Lineas de los caches L1 despues de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+dato: 666666
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core1: 0x100005 L
+Lectura
+
+ Lineas de los caches L1 antes de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+miss
+Buscando dato en el otro cache
+miss
+cargando de L2
+miss L2
+Entro a memoria
+
+ Bloque del cache L2 despues de lectura 
+Estado: i Tag: 256 Dato: 666666 LRU: v Valid 1
+
+dato en cache L1: 666666
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+ Lineas de los caches L1 despues de la lectura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 666666 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+
+dato: 666666
+
+--------- Nueva Instruccion --------
+Instruccion leida por Core2: 0x100025 S
+ Escritura 
+
+ Lineas de los caches L1 despues de la escritura 
+ L1A bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1A bloque 0
+Estado: M Tag: 4096 Dato: 123456789 LRU: N Valid 0
+ L1B bloque 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+ L1B bloque 1
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
+

@@ -78,9 +78,9 @@ Instruccion leida por Core2: 0x100015 S
  L1A bloque 1
 Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
  L1A bloque 0
-Estado: M Tag: 4096 Dato: 123456789 LRU: N Valid 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
  L1B bloque 0
-Estado: M Tag: 4096 Dato: 420420420 LRU: N Valid 0
+Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
  L1B bloque 1
 Estado: I Tag: 0 Dato: 0 LRU: V Valid 0
 

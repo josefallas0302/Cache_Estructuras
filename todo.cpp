@@ -23,8 +23,8 @@ int main () {
 
 	fstream ficheroEntrada1;
 	fstream ficheroEntrada2;
-	string nombre1 ("ficheroTexto1.txt");
-	string nombre2 ("ficheroTexto2.txt");
+	string nombre1 ("mem_trace_core1.txt");
+	string nombre2 ("mem_trace_core2.txt");
 	string frase1;
 	string frase2;
 	string cortado1;

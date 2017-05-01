@@ -32,6 +32,11 @@
 			c_block[index].set_valid(1);
 			CPU_mem.set_dir(binario, new_data);
 			
+				cout << "" << endl;
+				cout << " Bloque del cache L2 despues de escritura" << endl;
+				this->c_block[index].block_info();
+				cout << "" << endl;
+
 			return;
 		}
 
@@ -58,6 +63,12 @@
 
 			if ( c_block[index].get_tag() == tag && c_block[index].get_valid()== 1){
 				cout << "hit L2" << endl;
+
+				cout << "" << endl;
+				cout << " Bloque del cache L2 despues de lectura" << endl;
+				this->c_block[index].block_info();
+				cout << "" << endl;
+
 				return c_block[index].get_data();
 			}else {
 				cout << "miss L2" << endl;
@@ -66,6 +77,12 @@
 				c_block[index].set_data(info);
 				c_block[index].set_valid(1);
 				//cout << "dato en L2: " << CPU_mem.find_dir(binario)<< endl;
+
+				cout << "" << endl;
+				cout << " Bloque del cache L2 despues de lectura " << endl;
+				this->c_block[index].block_info();
+				cout << "" << endl;
+
 				return info;
 			} // Busca el dato en el cache o en la memoria
 		}

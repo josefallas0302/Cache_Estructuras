@@ -8,7 +8,6 @@
 #include "line.h"
 #include "cache_dir.h"
 #include "mem.h"
-#include "div_dir.cpp"
 
 using namespace std;
 
